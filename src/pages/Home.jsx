@@ -1,8 +1,7 @@
 import React,{useState,useEffect}  from 'react'
 import { useSelector } from 'react-redux'
-import { addReminder } from '../api/sync.js'
+import { addReminder , getPendingTasks } from '../api/sync.js'
 import TaskCard from '../components/TaskCard.jsx';
-import { getCompletedTasks , getPendingTasks } from '../api/sync.js';
 
 
 function Home() {
@@ -97,14 +96,15 @@ function Home() {
                 onChange={(e) => setText(e.target.value)}
                 onKeyDown={handleKey}
               />
-              <button
+              <Button
+                variant="primary"
                 onClick={handleSubmit}
                 disabled={loading}
-                className="p-3 rounded-full flex items-center justify-center transition-colors"
+                className="p-3 rounded-full flex items-center justify-center"
                 style={{ backgroundColor: "#1e293b", color: "#a4e6ff" }}
               >
                 {loading ? "⏳" : "↑"}
-              </button>
+              </Button>
             </div>
           </div>
 

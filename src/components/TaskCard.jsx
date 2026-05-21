@@ -1,25 +1,17 @@
 import React, { useState } from 'react';
 import { deleteReminder, completeReminder } from '../api/sync.js';
+import Button from './basicElement/Button.jsx';
 
 const COLORS = ["#00d1ff", "#feb127", "#a78bfa", "#34d399", "#f472b6"];
 
 function timeRemaining(deadline) {
   if (!deadline) return null;
   const diff = new Date(deadline) - new Date();
-
-  if (diff < 0) return { 
-    label: "Overdue", color: "#f87171" 
-};
+  if (diff < 0) return { label: "Overdue", color: "#f87171" };
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  if (days === 0) return { 
-    label: "Due today", color: "#feb127" 
-};
-  if (days === 1) return { 
-    label: "1 day left", color: "#feb127" 
-};
-  return { 
-    label: `${days} days left`, color: "#34d399" 
-};
+  if (days === 0) return { label: "Due today", color: "#feb127" };
+  if (days === 1) return { label: "1 day left", color: "#feb127" };
+  return { label: `${days} days left`, color: "#34d399" };
 }
 
 function formatDate(deadline) {
@@ -29,13 +21,11 @@ function formatDate(deadline) {
   });
 }
 
-// variant="pending" → ✓ active + ✕ active
-// variant="completed" → ✓ disabled + ✕ active
 function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
   const [deleting, setDeleting] = useState(false);
   const [completing, setCompleting] = useState(false);
 
-  const isCompleted = (variant === "completed");
+  const isCompleted = variant === "completed";
   const accent = COLORS[index % COLORS.length];
   const remaining = timeRemaining(task.deadline);
 
@@ -119,11 +109,11 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
 
       {/* Actions */}
       <div className="flex gap-2 shrink-0">
-        {/* Complete button — disabled if completed */}
-        <button
+        <Button
+          variant="success"
           onClick={handleComplete}
           disabled={isCompleted || completing}
-          className="text-xs px-3 py-1.5 rounded-lg transition-all duration-200"
+          className="text-xs px-3 py-1.5 rounded-lg"
           style={{
             background: "rgba(52,211,153,0.1)",
             border: "1px solid rgba(52,211,153,0.3)",
@@ -132,13 +122,13 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
           }}
         >
           {completing ? "..." : "✓"}
-        </button>
+        </Button>
 
-        {/* Delete button — always active */}
-        <button
+        <Button
+          variant="danger"
           onClick={handleDelete}
           disabled={deleting}
-          className="text-xs px-3 py-1.5 rounded-lg transition-all duration-200"
+          className="text-xs px-3 py-1.5 rounded-lg"
           style={{
             background: "rgba(248,113,113,0.1)",
             border: "1px solid rgba(248,113,113,0.3)",
@@ -147,7 +137,7 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
           }}
         >
           {deleting ? "..." : "✕"}
-        </button>
+        </Button>
       </div>
     </div>
   );

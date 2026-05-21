@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 
-import store from './store.js/store.js'
+import store from './store/store.js'
 import { Provider } from 'react-redux'
 import { createBrowserRouter ,  RouterProvider } from 'react-router-dom'
 
@@ -12,6 +12,7 @@ import Settings from './pages/Settings.jsx'
 import Completed from './pages/Completed.jsx'
 import Login from './pages/Login.jsx'
 import Signup from './pages/Signup.jsx'
+import AuthLayout from './components/AuthLayout.jsx'
 
 const router = createBrowserRouter([
   {

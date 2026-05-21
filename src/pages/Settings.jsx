@@ -15,14 +15,15 @@ function Settings() {
       }}
     >
       {/* Back button */}
-      <div className="px-5 md:px-16 pt-8">
-        <button
+       <div className="px-5 md:px-16 pt-8">
+        <Button
+          variant="ghost"
           onClick={() => navigate("/")}
-          className="flex items-center gap-2 text-sm transition-colors"
-          style={{ color: "#859399" }}
+          className="text-sm flex items-center gap-2"
+          style={{ color: "#859399", borderColor: "transparent" }}
         >
           ← Back
-        </button>
+        </Button>
       </div>
 
       <main className="flex-grow max-w-3xl w-full mx-auto px-5 md:px-16 pt-10 pb-20">

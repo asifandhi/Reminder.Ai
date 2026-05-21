@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { registerUser,loginUser } from '../api/auth.js';
 import { login } from '../store/authSlice.js';
-import Button from '../components/basicElement/Button.jsx';
-import Input from '../components/basicElement/Input.jsx';
+import Button from '../components/bacisComponets/Button.jsx';
+import Input from '../components/bacisComponets/Input.jsx';
 
 function Signup() {
   const navigate = useNavigate();
