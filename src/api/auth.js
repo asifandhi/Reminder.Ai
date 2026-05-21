@@ -1,7 +1,7 @@
 import axios from "axios";
 import conf from "../conf/conf.js";
 
-const baseUrl = `${conf.apibaseUrl}/api/user`;
+const baseUrl = `${conf.apiBaseUrl}/api/user`;
 
 export const registerUser = (data) =>
   axios.post(`${baseUrl}/register`, data, { withCredentials: true });

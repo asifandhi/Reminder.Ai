@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { deleteReminder, completeReminder } from '../api/sync.js';
-import Button from './basicElement/Button.jsx';
+import Button from './bacisComponets/Button.jsx';
 
 const COLORS = ["#00d1ff", "#feb127", "#a78bfa", "#34d399", "#f472b6"];
 

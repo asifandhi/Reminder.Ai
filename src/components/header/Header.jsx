@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { toggleTheme } from "../../store/themeSlice.js"
 import { logout } from "../../store/authSlice.js"
 import { logoutUser } from '../../api/auth.js'
-import Button from '../basicElement/Button.jsx'
+import Button from '../bacisComponets/Button.jsx'
 
 function Header() {
     const dispatch = useDispatch();

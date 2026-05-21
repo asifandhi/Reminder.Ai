@@ -2,6 +2,7 @@ import { useState,useEffect } from 'react'
 import './App.css'
 import { useSelector } from 'react-redux'
 import theme from './theme'
+import { useDispatch } from 'react-redux'
 import { Outlet } from 'react-router-dom'
 import { login } from './store/authSlice.js'
 import { getMe } from './api/auth.js'
@@ -14,8 +15,6 @@ function App() {
   const t = theme[mode]
 
   const dispatch = useDispatch();
-  const mode = useSelector((state) => state.theme.mode);
-  const t = theme[mode];
 
   useEffect(() => {
     getMe()
@@ -23,7 +22,7 @@ function App() {
         dispatch(login(res.data.data));
       })
       .catch(() => {
-        
+
       });
   }, []);
 
