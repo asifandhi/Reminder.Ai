@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { logout } from "../../store/authSlice.js"
 import { logoutUser } from '../../api/auth.js'
 import Button from '../bacisComponets/Button.jsx'
+import { useState } from 'react'
 
 function Header() {
     const dispatch = useDispatch();
@@ -13,17 +14,21 @@ function Header() {
         await logoutUser();
         dispatch(logout());
     };
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
     return (
         <nav className="fixed top-0 w-full z-50 backdrop-blur-md  border-b border-white/10 shadow-xl"
             style={{ background: "rgba(12, 19, 36, 0.6) ",   }}
         >
-            <div className="flex justify-between items-center max-w-[1200px] mx-auto px-5 md:px-16 h-12">
+            <div className="flex justify-between items-center max-w-300  md:mx-3 px-5 md:px-16 h-12">
 
                 {/* Logo */}
                 <Link to="/">
-                    <span className=" text-2xl md:text-4xl font-bold tracking-tighter"
-                        style={{ color: "#a4e6ff" }}
+                    <span className=" text-xl md:text-4xl  tracking-tighter"
+                        style={{ color: "white" }}
                     >
                         ReminderAI
                     </span>
@@ -34,21 +39,21 @@ function Header() {
 
                     {status ? (
                         <>
-                            <span className="hidden md:inline text-sm font-semibold"
+                            <span className=" text-sm font-semibold"
                                 style={{ color: "#bbc9cf" }}
                             >
                                 {userData?.name}
                             </span>
 
                             <Link to="/settings">
-                                <Button variant="ghost" className="text-sm rounded-full px-4 py-2">
+                                <Button variant="ghost" className="hidden md:block text-sm rounded-full px-4 py-2">
                                     Settings
                                 </Button>
                             </Link>
 
                             <Button
                                 variant="cta"
-                                className="text-sm rounded-full px-6 py-2"
+                                className="hidden md:block text-sm rounded-full px-6 py-2"
                                 onClick={handleLogout}
                             >
                                 Logout
@@ -56,21 +61,75 @@ function Header() {
                         </>
                     ) : (
                         <>
+                            
                             <Link to="/login">
-                                <Button variant="ghost" className="text-sm rounded-full px-4 py-2">
+                                <Button variant="ghost" className=" hidden md:block text-sm rounded-full px-4 py-2">
                                     Login
                                 </Button>
                             </Link>
 
                             <Link to="/signup">
-                                <Button variant="cta" className="text-sm rounded-full px-6 py-2">
+                                <Button variant="cta" className=" hidden md:block text-sm rounded-full px-6 py-2">
                                     Sign Up
                                 </Button>
                             </Link>
+                            
+                        </>
+                    )}
+
+                    <button type="button" command="--toggle" onClick={toggleMenu} commandfor="mobile-menu" className="relative md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
+                                <span className="absolute -inset-0.5"></span>
+                                <span className="sr-only">Open main menu</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" data-slot="icon" aria-hidden="true" className="size-6 in-aria-expanded:hidden">
+                                <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" data-slot="icon" aria-hidden="true" className="size-6 not-in-aria-expanded:hidden">
+                                <path d="M6 18 18 6M6 6l12 12" strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
+                            </button>
+                </div>
+            </div>
+            {isMenuOpen && (
+
+
+                <div className="md:hidden">
+                    {status ? (
+                        <>
+                            
+
+                            <div className='flex flex-col gap-2 mb-2 ml-0.5'>
+                                <Link  to="/settings">
+                                <Button
+                                variant="cta"
+                                className='bg-transparent px-3 w-[25%]  rounded hover:bg-blue-300 hover:text-black'
+                                >Settings </Button>
+                            </Link>
+
+                            <Button
+                                variant="cta"
+                                className='bg-transparent px-3 w-[25%]  rounded hover:bg-blue-300 hover:text-black'
+                                onClick={handleLogout}
+                            >
+                                Logout
+                            </Button>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <div className='flex flex-col justify-center px-1 gap-1.5  mb-1 '>
+                                <Link className='bg-transparent px-3 w-[25%]  rounded hover:bg-blue-300 hover:text-black'  to="/login">
+                                Login
+                            </Link>
+
+                            <Link className='bg-transparent px-3 w-[25%]  rounded hover:bg-blue-300 hover:text-black' to="/signup">
+                               Sign up
+                            </Link>
+                            </div>
+                            
                         </>
                     )}
                 </div>
-            </div>
+            )}
         </nav>
     )
 }

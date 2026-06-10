@@ -48,11 +48,8 @@ function Home() {
 
   return (
     <div
-      className="min-h-screen flex flex-col font-geist antialiased"
-      style={{
-        background: "radial-gradient(circle at center, #151b2d 0%, #070d1f 60%, #000000 100%)",
-        color: "#dce1fb",
-      }}
+      className="min-h-screen flex flex-col font-geist bg-black antialiased"
+      
     >
       <Header />
 
@@ -136,15 +133,15 @@ function Home() {
           ) : (
             /* Not logged in — landing CTA */
             <div className="flex flex-col items-center gap-6 text-center">
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight" style={{ color: "#dce1fb" }}>
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight" style={{ color: "#dce1fb" }}>
                 Your AI Reminder
               </h1>
-              <p className="text-lg max-w-md" style={{ color: "#859399" }}>
+              <p className="md:text-lg text-sm text-[10] max-w-md" style={{ color: "#859399" }}>
                 Paste any WhatsApp or email text — ReminderAI extracts tasks and syncs them to Google Calendar.
               </p>
-              <div className="flex gap-4">
+              <div className="md:flex-row md:flex flex flex-col     gap-6">
                 <Link to="/signup">
-                  <Button variant="cta" className="px-8 py-3 rounded-full text-base">
+                  <Button variant="cta" className="px-5 py-3 rounded-full text-base">
                     Get Started
                   </Button>
                 </Link>
@@ -162,15 +159,15 @@ function Home() {
 
       {/* Footer */}
       <footer
-        className="w-full py-12 border-t mt-auto"
+        className="w-full py-0 md:py-3 border-t mt-auto"
         style={{ backgroundColor: "#070d1f", borderColor: "rgba(60,73,78,0.2)" }}
       >
         <div className="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-5 gap-6 md:gap-0">
-          <span className="text-2xl font-bold tracking-tighter" style={{ color: "#a4e6ff" }}>ReminderAI</span>
+          <span className="text-2xl  tracking-tighter" style={{ color: "white" }}>ReminderAI</span>
           <span className="text-xs" style={{ color: "#859399" }}>© 2024 ReminderAI. All rights reserved.</span>
-          <div className="flex gap-6 text-xs">
+          <div className="flex gap-3 text-xs">
             {["Privacy", "Terms", "Support"].map((item) => (
-              <a key={item} href="#" style={{ color: "#859399" }}>{item}</a>
+              <a key={item} href="#" style={{ color: "wite" }}>{item}</a>
             ))}
           </div>
         </div>

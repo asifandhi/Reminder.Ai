@@ -19,7 +19,7 @@ function Button({
         ghost: `bg-transparent border hover:bg-white/10`,
         danger: `bg-red-500 hover:bg-red-600 text-white`,
         success: `bg-green-500 hover:bg-green-600 text-white`,
-        cta: `font-bold hover:opacity-90 active:scale-95`,
+        cta: `font-bold hover:opacity-60 active:scale-95`,
     }
 
     let customStyle = {};

@@ -7,15 +7,16 @@ export const verifyJWT = asyncHandler(async (req, res, next) => {
   try {
     const token =
       req.cookies?.accessToken ||
-      req.header("Authorization")?.replace("Bearer ", "");
+      req.header("Authorization")?.replace("Bearer ", "").trim();
 
     if (!token) {
       throw new apiError(401, "Unauthorized — no token found");
     }
 
     const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+    console.log("✅ JWT Verified Successfully");
 
-    const user = await User.findById(decoded?.userId).select(   
+    const user = await User.findById(decoded?.userId).select(
       "-password -refreshToken"
     );
 

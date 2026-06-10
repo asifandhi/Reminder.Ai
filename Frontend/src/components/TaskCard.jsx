@@ -73,30 +73,31 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
     >
       {/* Accent bar */}
       <div
-        className="w-1.5 rounded-full mt-1 shrink-0"
-        style={{ backgroundColor: accent, minHeight: "40px" }}
+        className="w-0.5 rounded-full mt-1 shrink-0"
+        style={{ backgroundColor: accent, minHeight: "20px" }}
       />
 
       {/* Content */}
-      <div className="flex-grow flex flex-col gap-2 min-w-0">
+      <div className="grow flex flex-col gap-2 min-w-0">
         <span
           className="text-base leading-snug"
           style={{
             color: "#dce1fb",
             textDecoration: isCompleted ? "line-through" : "none",
           }}
-        >
+          >
           {task.task}
 
           {task.description && (
-  <span className="text-xs" style={{ color: "#859399" }}>
-    {task.description}
-  </span>
-)}
+          <span className="text-xs" style={{ color: "#859399" }}>
+            {task.description}
+          </span>
+          )
+          }
           
         </span>
 
-        <div className="flex items-center gap-3 flex-wrap">
+        <div className="flex flex-col  items-start md:flex md:flex-row gap-3 flex-wrap">
           <span
             className="text-xs px-2 py-0.5 rounded"
             style={{
@@ -109,7 +110,8 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
           </span>
 
           {remaining && !isCompleted && (
-            <span className="text-xs font-medium" style={{ color: remaining.color }}>
+            <span className="text-xs px-2 rounded-2xl font-medium" style={{ color: remaining.color,  background: "rgba(255,255,255,0.05)" ,border: "1px solid rgba(255,255,255,0.08)",
+              color: "#859399" }}>
               ⏱ {remaining.label}
             </span>
           )}
