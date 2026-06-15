@@ -20,12 +20,11 @@ function Header() {
     };
 
     return (
-        <nav className="fixed top-0 w-full z-50 backdrop-blur-md  border-b border-white/10 shadow-xl"
-            style={{ background: "rgba(12, 19, 36, 0.6) ",   }}
+        <nav className="fixed top-0 w-full z-50 backdrop-blur-md  border-b border-white/10 shadow-xl bg-gray-950"
+            
         >
             <div className="flex justify-between items-center max-w-300  md:mx-3 px-5 md:px-16 h-12">
 
-                {/* Logo */}
                 <Link to="/">
                     <span className=" text-xl md:text-4xl  tracking-tighter"
                         style={{ color: "white" }}

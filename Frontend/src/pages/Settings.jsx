@@ -37,11 +37,8 @@ function Settings() {
 
   return (
     <div
-      className="min-h-screen flex flex-col font-geist antialiased"
-      style={{
-        background: "radial-gradient(circle at center, #151b2d 0%, #070d1f 60%, #000000 100%)",
-        color: "#dce1fb",
-      }}
+      className="min-h-screen flex flex-col font-geist antialiased bg-gray-950"
+      
     >
       {/* Back button */}
       <div className="px-5 md:px-16 pt-8">
