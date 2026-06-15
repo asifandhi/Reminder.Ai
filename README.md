@@ -1,4 +1,4 @@
- # ReminderAI
+ # Re Mind
 
 > Paste any WhatsApp or email text — AI extracts your tasks and syncs them to Google Calendar automatically.
 
@@ -87,19 +87,19 @@ npm run dev
 
 ```env
 PORT=8000
-MONGODB_URI=mongodb://localhost:27017/reminderai
-CORS_ORIGIN=http://localhost:5173
+MONGODB_URI= 
+CORS_ORIGIN= 
 
-ACCESS_TOKEN_SECRET=your_secret
-ACCESS_TOKEN_EXPIRY=15m
-REFRESH_TOKEN_SECRET=your_secret
-REFRESH_TOKEN_EXPIRY=7d
+ACCESS_TOKEN_SECRET=
+ACCESS_TOKEN_EXPIRY=
+REFRESH_TOKEN_SECRET=
+REFRESH_TOKEN_EXPIRY=
 
 GEMINI_API_KEY=
 GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
-GOOGLE_REDIRECT_URI=http://localhost:8000/api/calendar/callback
-FRONTEND_URL=http://localhost:5173
+GOOGLE_REDIRECT_URI=
+FRONTEND_URL=
 NODE_ENV=development
 ```
 
@@ -116,7 +116,7 @@ npm run dev
 ### Frontend `.env`
 
 ```env
-VITE_API_BASE_URL=http://localhost:8000
+VITE_API_BASE_URL=
 ```
 
 ---
@@ -148,7 +148,7 @@ VITE_API_BASE_URL=http://localhost:8000
    - Application type: **Web application**
    - Authorized redirect URIs → **Add URI**:
      ```
-     http://localhost:8000/api/calendar/callback
+      api/calendar/callback
      ```
    - Click **Create**
 7. Copy **Client ID** → paste as `GOOGLE_CLIENT_ID`
