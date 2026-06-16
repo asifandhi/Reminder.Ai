@@ -7,19 +7,11 @@ const COLORS = ["#00d1ff", "#feb127", "#a78bfa", "#34d399", "#f472b6"];
 function timeRemaining(deadline) {
   if (!deadline) return null;
   const diff = new Date(deadline) - new Date();
-  if (diff < 0) return {
-     label: "Overdue", color: "#f87171" 
-    };
+  if (diff < 0) return { label: "Overdue", color: "#f87171" };
   const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  if (days === 0) return {
-     label: "Due today", color: "#feb127" 
-    };
-  if (days === 1) return {
-     label: "1 day left", color: "#feb127" 
-    };
-  return {
-     label: `${days} days left`, color: "#34d399" 
-    };
+  if (days === 0) return { label: "Due today", color: "#feb127" };
+  if (days === 1) return { label: "1 day left", color: "#feb127" };
+  return { label: `${days} days left`, color: "#34d399" };
 }
 
 function formatDate(deadline) {
@@ -62,8 +54,9 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
   };
 
   return (
+    /* CHANGE 1: Swapped items-start for items-stretch, added overflow-hidden, and removed standard card padding here */
     <div
-      className="p-4 rounded-xl flex items-start gap-4 transition-all duration-300"
+      className="rounded-xl flex h-auto min-h-[112px] flex-row items-stretch transition-all duration-300 overflow-hidden"
       style={{
         background: "rgba(21,27,45,0.4)",
         backdropFilter: "blur(16px)",
@@ -71,35 +64,41 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
         opacity: isCompleted ? 0.6 : 1,
       }}
     >
-      {/* Accent bar */}
-      <div
-        className="w-0.5 rounded-full mt-1 shrink-0"
-        style={{ backgroundColor: accent, minHeight: "20px" }}
-      />
+      {/* CHANGE 2: Simplified the vertical bar wrapper so the accent line spans edge-to-edge */}
+      <div className='flex shrink-0'>
+        <div
+          className="w-1.5 shrink-0"
+          style={{ backgroundColor: accent }}
+        />
+      </div>
 
-      {/* Content */}
-      <div className="grow flex flex-col gap-2 min-w-0">
+      {/* CHANGE 3: Placed padding (p-4) on the internal content box instead of the main card wrapper */}
+      <div className="p-4 grow flex flex-col gap-1.5 min-w-0 justify-center">
+        {/* Title */}
         <span
-          className="text-base leading-snug"
+          className="text-sm sm:text-base font-medium leading-snug break-words"
           style={{
             color: "#dce1fb",
             textDecoration: isCompleted ? "line-through" : "none",
           }}
-          >
+        >
           {task.task}
-
-          {task.description && (
-          <span className="text-xs" style={{ color: "#859399" }}>
-            {task.description}
-          </span>
-          )
-          }
-          
         </span>
 
-        <div className="flex flex-col  items-start md:flex md:flex-row gap-3 flex-wrap">
+        {/* Description */}
+        {task.description && (
           <span
-            className="text-xs px-2 py-0.5 rounded"
+            className="text-xs leading-relaxed break-words"
+            style={{ color: "#859399" }}
+          >
+            {task.description}
+          
+        </span>)}
+
+        {/* Badges */}
+        <div className="flex flex-row flex-wrap gap-2 items-center mt-0.5">
+          <span
+            className="text-xs px-2 py-0.5 rounded whitespace-nowrap"
             style={{
               background: "rgba(255,255,255,0.05)",
               border: "1px solid rgba(255,255,255,0.08)",
@@ -110,8 +109,14 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
           </span>
 
           {remaining && !isCompleted && (
-            <span className="text-xs px-2 rounded-2xl font-medium" style={{ color: remaining.color,  background: "rgba(255,255,255,0.05)" ,border: "1px solid rgba(255,255,255,0.08)",
-              color: "#859399" }}>
+            <span
+              className="text-xs px-2 py-0.5 rounded-2xl font-medium whitespace-nowrap"
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                color: remaining.color,
+              }}
+            >
               ⏱ {remaining.label}
             </span>
           )}
@@ -123,19 +128,20 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
           )}
         </div>
       </div>
-
-      {/* Actions */}
-      <div className="flex gap-2 shrink-0">
+          
+      {/* CHANGE 4: Added items-center and pr-4 so buttons align vertically with the content block */}
+      <div className="flex flex-col sm:flex-row my-5 gap-2 shrink-0 items-center pr-4">
         <Button
           variant="success"
           onClick={handleComplete}
           disabled={isCompleted || completing}
-          className="text-xs px-3 py-1.5 rounded-lg"
+          className="text-xs px-2.5 py-1.5 rounded-lg"
           style={{
             background: "rgba(52,211,153,0.1)",
             border: "1px solid rgba(52,211,153,0.3)",
             color: isCompleted ? "rgba(52,211,153,0.3)" : "#34d399",
             cursor: isCompleted ? "not-allowed" : "pointer",
+            minWidth: "32px",
           }}
         >
           {completing ? "..." : "✓"}
@@ -145,12 +151,13 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
           variant="danger"
           onClick={handleDelete}
           disabled={deleting}
-          className="text-xs px-3 py-1.5 rounded-lg"
+          className="text-xs px-2.5 py-1.5 rounded-lg"
           style={{
             background: "rgba(248,113,113,0.1)",
             border: "1px solid rgba(248,113,113,0.3)",
             color: "#f87171",
             cursor: deleting ? "not-allowed" : "pointer",
+            minWidth: "32px",
           }}
         >
           {deleting ? "..." : "✕"}

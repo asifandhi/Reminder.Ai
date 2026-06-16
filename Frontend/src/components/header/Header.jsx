@@ -20,20 +20,18 @@ function Header() {
     };
 
     return (
-        <nav className="fixed top-0 w-full z-50 backdrop-blur-md  border-b border-white/10 shadow-xl bg-gray-950"
-            
+        <nav className="fixed top-0 w-full z-50 backdrop-blur-md  border-b border-white/10 shadow-xl bg-gray-950"            
         >
-            <div className="flex justify-between items-center max-w-300  md:mx-3 px-5 md:px-16 h-12">
+            <div className="flex justify-between items-center max-w-300    px-1 sm:px-4 md:px-6 h-12">
 
                 <Link to="/">
-                    <span className=" text-xl md:text-4xl  tracking-tighter"
+                    <span className=" font-bold text-xl sm:text-3xl  md:text-4xl   tracking-tighter"
                         style={{ color: "white" }}
                     >
-                        ReminderAI
+                        Re-Mind
                     </span>
                 </Link>
 
-                {/* Right Side */}
                 <div className="flex items-center gap-4"> 
 
                     {status ? (
@@ -45,14 +43,14 @@ function Header() {
                             </span>
 
                             <Link to="/settings">
-                                <Button variant="ghost" className="hidden md:block text-sm rounded-full px-4 py-2">
+                                <Button variant="ghost" className="hidden sm:block text-sm rounded-full px-4 py-2">
                                     Settings
                                 </Button>
                             </Link>
 
                             <Button
                                 variant="cta"
-                                className="hidden md:block text-sm rounded-full px-6 py-2"
+                                className="hidden sm:block text-sm rounded-full px-6 py-2"
                                 onClick={handleLogout}
                             >
                                 Logout
@@ -62,13 +60,13 @@ function Header() {
                         <>
                             
                             <Link to="/login">
-                                <Button variant="ghost" className=" hidden md:block text-sm rounded-full px-4 py-2">
+                                <Button variant="ghost" className=" hidden sm:block text-sm rounded-full px-4 py-2">
                                     Login
                                 </Button>
                             </Link>
 
                             <Link to="/signup">
-                                <Button variant="cta" className=" hidden md:block text-sm rounded-full px-6 py-2">
+                                <Button variant="cta" className=" hidden sm:block text-sm rounded-full px-6 py-2">
                                     Sign Up
                                 </Button>
                             </Link>
@@ -76,7 +74,7 @@ function Header() {
                         </>
                     )}
 
-                    <button type="button" command="--toggle" onClick={toggleMenu} commandfor="mobile-menu" className="relative md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
+                    <button type="button" command="--toggle" onClick={toggleMenu} commandfor="mobile-menu" className="relative sm:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:-outline-offset-1 focus:outline-indigo-500">
                                 <span className="absolute -inset-0.5"></span>
                                 <span className="sr-only">Open main menu</span>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" data-slot="icon" aria-hidden="true" className="size-6 in-aria-expanded:hidden">
@@ -91,7 +89,7 @@ function Header() {
             {isMenuOpen && (
 
 
-                <div className="md:hidden">
+                <div className="sm:hidden">
                     {status ? (
                         <>
                             
