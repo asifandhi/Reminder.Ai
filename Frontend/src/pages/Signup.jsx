@@ -14,9 +14,16 @@ function Signup() {
   const [error, setError] = useState("");
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const isValidEmail = (email) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
 
   const handleSubmit = async () => {
   if (!form.name || !form.email || !form.password) return;
+  if (!isValidEmail(form.email)) {
+    setError("Please enter a valid email address");
+    return;
+  }
   setLoading(true);
   setError("");
   try {

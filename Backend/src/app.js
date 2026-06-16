@@ -30,6 +30,14 @@ app.use("/api/calendar",calendarRoute);
 app.use("/api/sync", syncRoutes); //router.post("/addreminder", addReminder);
 app.use("/api/user",userRoutes);
 
+app.use((err, req, res, next) => {
+  const statusCode = err.statusCode || 500;
+  const message = err.message || "Something went wrong";
+  return res.status(statusCode).json({
+    success: false,
+    message,
+  });
+});
 
 
 

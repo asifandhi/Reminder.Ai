@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getCompletedTasks } from '../api/sync.js';
 import TaskCard from '../components/TaskCard.jsx';
+import Button from '../components/bacisComponets/Button.jsx';
 
 function Completed() {
   const navigate = useNavigate();
@@ -28,14 +29,16 @@ function Completed() {
     >
       {/* Back button */}
       <div className="px-5 md:px-16 pt-8">
-        <button
-          onClick={() => navigate("/settings")}
-          className="flex items-center gap-2 text-sm transition-colors"
-          style={{ color: "#859399" }}
+        <Button
+          variant="ghost"
+          onClick={() => navigate(-1)}
+          className="text-sm flex items-center gap-2"
+          style={{ color: "#859399", borderColor: "transparent" }}
         >
           ← Back
-        </button>
+        </Button>
       </div>
+      
 
       <main className="flex-grow max-w-3xl w-full mx-auto px-5 md:px-16 pt-10 pb-20">
         <h1 className="text-2xl font-semibold mb-2" style={{ color: "#dce1fb" }}>Completed</h1>
@@ -66,8 +69,7 @@ function Completed() {
 
       {/* Footer */}
       <footer
-        className="w-full py-12 border-t mt-auto"
-        style={{ backgroundColor: "#070d1f", borderColor: "rgba(60,73,78,0.2)" }}
+        className="w-full py-12 border-t mt-auto bg-gray-950"
       >
         <div className="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-5 gap-6 md:gap-0">
           <span className="text-2xl font-bold tracking-tighter" style={{ color: "#a4e6ff" }}>ReminderAI</span>

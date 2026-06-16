@@ -74,7 +74,7 @@ function Settings() {
           </div>
           <div>
             <p className="font-medium" style={{ color: "#dce1fb" }}>{user?.name || "User"}</p>
-            <p className="text-sm" style={{ color: "#859399" }}>{user?.email || ""}</p>
+            <p className="text-sm " style={{ color: "#859399" }}>{user?.email || ""}</p>
           </div>
         </div>
 
@@ -199,8 +199,7 @@ function Settings() {
 
       {/* Footer */}
       <footer
-        className="w-full py-12 border-t mt-auto"
-        style={{ backgroundColor: "#070d1f", borderColor: "rgba(60,73,78,0.2)" }}
+        className="w-full py-12 border-t mt-auto bg-gray-950"
       >
         <div className="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-5 gap-6 md:gap-0">
           <span className="text-2xl font-bold tracking-tighter" style={{ color: "#a4e6ff" }}>ReminderAI</span>
