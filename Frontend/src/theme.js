@@ -1,4 +1,3 @@
-// src/theme.js
 const theme = {
   light: {
     bg: "#ffffff",

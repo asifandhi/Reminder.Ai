@@ -54,7 +54,6 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
   };
 
   return (
-    /* CHANGE 1: Swapped items-start for items-stretch, added overflow-hidden, and removed standard card padding here */
     <div
       className="rounded-xl flex h-auto min-h-[112px] flex-row items-stretch transition-all duration-300 overflow-hidden"
       style={{
@@ -64,7 +63,6 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
         opacity: isCompleted ? 0.6 : 1,
       }}
     >
-      {/* CHANGE 2: Simplified the vertical bar wrapper so the accent line spans edge-to-edge */}
       <div className='flex shrink-0'>
         <div
           className="w-1.5 shrink-0"
@@ -72,9 +70,7 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
         />
       </div>
 
-      {/* CHANGE 3: Placed padding (p-4) on the internal content box instead of the main card wrapper */}
       <div className="p-4 grow flex flex-col gap-1.5 min-w-0 justify-center">
-        {/* Title */}
         <span
           className="text-sm sm:text-base font-medium leading-snug break-words"
           style={{
@@ -85,7 +81,6 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
           {task.task}
         </span>
 
-        {/* Description */}
         {task.description && (
           <span
             className="text-xs leading-relaxed break-words"
@@ -95,7 +90,6 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
           
         </span>)}
 
-        {/* Badges */}
         <div className="flex flex-row flex-wrap gap-2 items-center mt-0.5">
           <span
             className="text-xs px-2 py-0.5 rounded whitespace-nowrap"
@@ -129,7 +123,6 @@ function TaskCard({ task, index, onDelete, onComplete, variant = "pending" }) {
         </div>
       </div>
           
-      {/* CHANGE 4: Added items-center and pr-4 so buttons align vertically with the content block */}
       <div className="flex flex-col sm:flex-row my-5 gap-2 shrink-0 items-center pr-4">
         <Button
           variant="success"

@@ -24,10 +24,8 @@ oauth2Client.on("tokens", async (tokens) => {
   console.log("Google tokens auto-refreshed and saved to DB");
 });
 
-// ✅ Module-level store — survives across all requests
 let storedTokens = null;
 
-// Step 1: Redirect to Google login
 export const getAuthUrl = (req, res) => {
   const url = oauth2Client.generateAuthUrl({
     access_type: "offline",
@@ -37,7 +35,6 @@ export const getAuthUrl = (req, res) => {
   res.redirect(url);
 };
 
-// Step 2: Google callback — save tokens globally
 export const handleCallback = async (req, res) => {
   const { code,state } = req.query;
   const { tokens } = await oauth2Client.getToken(code);
@@ -60,7 +57,6 @@ export const handleCallback = async (req, res) => {
 
  
 
-// ✅ Reusable helper for sync.controller.js
 export const pushToGoogleCalendar = async (taskData) => {
 
   if (!storedTokens) {
@@ -79,10 +75,9 @@ export const pushToGoogleCalendar = async (taskData) => {
   let calEvent;
 
   if (taskData.dueTime) {
-    // Timed event
     const [hours, minutes] = taskData.dueTime.split(":");
     const start = new Date(`${taskData.deadline}T${taskData.dueTime}:00`);
-    const end = new Date(start.getTime() + 30 * 60 * 1000); // 30min duration
+    const end = new Date(start.getTime() + 30 * 60 * 1000); 
     const endTime = `${String(end.getHours()).padStart(2,"0")}:${String(end.getMinutes()).padStart(2,"0")}`;
 
     calEvent = {
@@ -93,7 +88,6 @@ export const pushToGoogleCalendar = async (taskData) => {
       reminders: { useDefault: false, overrides: [{ method: "popup", minutes: 30 }] },
     };
   } else {
-    // All-day event
     calEvent = {
       summary: taskData.task,
       description: taskData.description || "",

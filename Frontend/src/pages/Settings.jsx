@@ -40,7 +40,6 @@ function Settings() {
       className="min-h-screen flex flex-col font-geist antialiased bg-gray-950"
       
     >
-      {/* Back button */}
       <div className="px-5 md:px-16 pt-8">
         <Button
           variant="ghost"
@@ -57,7 +56,6 @@ function Settings() {
         <h1 className="text-2xl font-semibold mb-2" style={{ color: "#dce1fb" }}>Settings</h1>
         <p className="text-sm mb-10" style={{ color: "#859399" }}>Manage your preferences</p>
 
-        {/* Profile */}
         <div
           className="p-5 rounded-xl flex items-center gap-4 mb-4"
           style={{
@@ -78,7 +76,6 @@ function Settings() {
           </div>
         </div>
 
-        {/* Completed Reminders */}
         <button
           onClick={() => navigate("/completed")}
           className="w-full text-left p-4 rounded-xl flex items-center justify-between group transition-all duration-300 mb-4"
@@ -103,7 +100,6 @@ function Settings() {
           <span style={{ color: "#859399" }}>›</span>
         </button>
 
-        {/* Change Password */}
         <div
           className="rounded-xl transition-all duration-300 mb-4"
           style={{
@@ -159,7 +155,6 @@ function Settings() {
           )}
         </div>
 
-        {/* Google Calendar */}
         <div
           className="rounded-xl transition-all duration-300"
           style={{
@@ -197,7 +192,6 @@ function Settings() {
 
       </main>
 
-      {/* Footer */}
       <footer
         className="w-full py-12 border-t mt-auto bg-gray-950"
       >

@@ -48,12 +48,11 @@ function Home() {
 
   return (
     <div
-      className="min-h-screen flex flex-col font-geist bg-black antialiased"
+      className="min-h-screen flex flex-col font-geist bg-gray-950 antialiased"
       
     >
       <Header />
 
-      {/* Decorative blobs */}
       <div className="fixed top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none -z-10"
         style={{ background: "rgba(0,209,255,0.06)", filter: "blur(120px)" }}
       />
@@ -61,12 +60,11 @@ function Home() {
         style={{ background: "rgba(96,1,209,0.08)", filter: "blur(100px)" }}
       />
 
-      <main className="flex-grow flex flex-col justify-end items-center px-5 md:px-16 pt-32 pb-20">
+      <main className="flex-grow flex flex-col justify-end items-center px-5 md:px-16 pt-32 pb-12">
         <div className="max-w-3xl w-full flex flex-col items-center gap-12">
 
           {status ? (
             <>
-              {/* Task Cards */}
               {tasks.length > 0 && (
                 <div className="w-full max-w-2xl flex flex-col gap-3">
                   {tasks.map((task, i) => (
@@ -81,8 +79,6 @@ function Home() {
                   ))}
                 </div>
               )}
-
-              {/* Input Bar */}
               <div className="w-full relative group">
   <div className="absolute -inset-1 rounded-2xl blur opacity-0 group-hover:opacity-100 transition duration-500"
     style={{ background: "linear-gradient(to right, rgba(0,209,255,0.2), rgba(96,1,209,0.2))" }}
@@ -126,13 +122,9 @@ function Home() {
   </div>
 </div>
 
-              <p className="text-base text-center max-w-lg" style={{ color: "#859399" }}>
-                Paste any text — ReminderAI extracts tasks and adds them to your Google Calendar.
-              </p>
             </>
           ) : (
-            /* Not logged in — landing CTA */
-            <div className="flex flex-col items-center gap-6 text-center">
+             <div className="flex flex-col items-center gap-6 text-center">
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight" style={{ color: "#dce1fb" }}>
                 Your AI Reminder
               </h1>
@@ -157,7 +149,6 @@ function Home() {
         </div>
       </main>
 
-      {/* Footer */}
       <footer
         className="w-full py-0 md:py-3 border-t border-gray-700 mt-auto bg-gray-950"
       >

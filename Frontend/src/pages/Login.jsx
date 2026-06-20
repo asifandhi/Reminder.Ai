@@ -37,7 +37,6 @@ function Login() {
       className="min-h-screen flex items-center justify-center px-5 font-geist antialiased"
       style={{ background: "radial-gradient(circle at center, #151b2d 0%, #070d1f 60%, #000000 100%)" }}
     >
-      {/* Blobs */}
       <div className="fixed top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none -z-10"
         style={{ background: "rgba(0,209,255,0.06)", filter: "blur(120px)" }} />
       <div className="fixed bottom-1/3 right-1/4 w-64 h-64 rounded-full pointer-events-none -z-10"
@@ -51,7 +50,6 @@ function Login() {
           border: "1px solid rgba(255,255,255,0.1)",
         }}
       >
-        {/* Logo */}
         <div className="text-center">
           <Link to="/">
             <span className="text-3xl font-bold tracking-tighter" style={{ color: "#a4e6ff" }}>
@@ -61,7 +59,6 @@ function Login() {
           <p className="text-sm mt-2" style={{ color: "#859399" }}>Welcome back</p>
         </div>
 
-        {/* Error */}
         {error && (
           <p className="text-sm text-center px-3 py-2 rounded-lg"
             style={{ background: "rgba(248,113,113,0.1)", border: "1px solid rgba(248,113,113,0.2)", color: "#f87171" }}>
@@ -69,7 +66,6 @@ function Login() {
           </p>
         )}
 
-        {/* Fields */}
         <div className="flex flex-col gap-4">
           <Input
             label="Email"
@@ -105,7 +101,6 @@ function Login() {
           />
         </div>
 
-        {/* Submit */}
         <Button
           variant="primary"
           disabled={loading}

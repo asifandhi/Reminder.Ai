@@ -1,4 +1,3 @@
-// src/components/bacisComponets/Input.jsx
 import { useSelector } from "react-redux";
 import theme from "../../theme.js";
 

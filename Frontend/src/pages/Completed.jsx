@@ -27,7 +27,6 @@ function Completed() {
     <div
       className="min-h-screen flex flex-col font-geist antialiased bg-gray-950"
     >
-      {/* Back button */}
       <div className="px-5 md:px-16 pt-8">
         <Button
           variant="ghost"
@@ -67,7 +66,6 @@ function Completed() {
         )}
       </main>
 
-      {/* Footer */}
       <footer
         className="w-full py-12 border-t mt-auto bg-gray-950"
       >

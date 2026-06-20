@@ -27,7 +27,6 @@ export const addReminder = asyncHandler(async (req, res) => {
       sourceText: text,
     });
 
-    // Push to Google Calendar if user has tokens
     if (todo.deadline) {
       try {
         const user = await User.findById(req.user._id);
@@ -63,7 +62,6 @@ export const deleteReminder = asyncHandler(async (req, res) => {
   const task = await Task.findById(taskId);
   if (!task) throw new apiError(404, "Task not found");
 
-  // Delete from Google Calendar
   if (task.googleCalendarEventId) {
     try {
       const user = await User.findById(task.user);
