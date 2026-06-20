@@ -61,7 +61,7 @@ function Signup() {
         <div className="text-center">
           <Link to="/">
             <span className="text-3xl font-bold tracking-tighter" style={{ color: "#a4e6ff" }}>
-              ReminderAI
+              Re-Mind
             </span>
           </Link>
           <p className="text-sm mt-2" style={{ color: "#859399" }}>Create your account</p>

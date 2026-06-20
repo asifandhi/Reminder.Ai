@@ -20,7 +20,7 @@
 
 ## 💡 How It Works
 
-ReminderAI is a full-stack MERN application. The user pastes any raw text — a WhatsApp message, email, or notice — into the input bar. The backend sends that text to Google Gemini, which extracts actionable tasks with deadlines and due times. Each task is saved to MongoDB and, if the user has connected Google Calendar, automatically creates a calendar event. Timed tasks get a popup reminder 30 minutes before; tasks with only a date get an all-day event with an 8-hour reminder.
+Re-Mind is a full-stack MERN application. The user pastes any raw text — a WhatsApp message, email, or notice — into the input bar. The backend sends that text to Google Gemini, which extracts actionable tasks with deadlines and due times. Each task is saved to MongoDB and, if the user has connected Google Calendar, automatically creates a calendar event. Timed tasks get a popup reminder 30 minutes before; tasks with only a date get an all-day event with an 8-hour reminder.
 
 ---
 

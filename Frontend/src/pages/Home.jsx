@@ -52,14 +52,6 @@ function Home() {
       
     >
       <Header />
-
-      <div className="fixed top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none -z-10"
-        style={{ background: "rgba(0,209,255,0.06)", filter: "blur(120px)" }}
-      />
-      <div className="fixed bottom-1/3 right-1/4 w-64 h-64 rounded-full pointer-events-none -z-10"
-        style={{ background: "rgba(96,1,209,0.08)", filter: "blur(100px)" }}
-      />
-
       <main className="flex-grow flex flex-col justify-end items-center px-5 md:px-16 pt-32 pb-12">
         <div className="max-w-3xl w-full flex flex-col items-center gap-12">
 
@@ -128,8 +120,8 @@ function Home() {
               <h1 className="text-4xl md:text-5xl font-bold tracking-tight" style={{ color: "#dce1fb" }}>
                 Your AI Reminder
               </h1>
-              <p className="md:text-lg text-sm text-[10] max-w-md" style={{ color: "#859399" }}>
-                Paste any WhatsApp or email text — ReminderAI extracts tasks and syncs them to Google Calendar.
+              <p className="md:text-lg text-sm  text-[10] max-w-md" style={{ color: "#859399" }}>
+                Paste any WhatsApp or email text — Re-Mind extracts tasks and syncs them to Google Calendar.
               </p>
               <div className="md:flex-row md:flex flex flex-col     gap-6">
                 <Link to="/signup">
@@ -153,8 +145,8 @@ function Home() {
         className="w-full py-0 md:py-3 border-t border-gray-700 mt-auto bg-gray-950"
       >
         <div className="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-5 gap-6 md:gap-0">
-          <span className="text-2xl  tracking-tighter" style={{ color: "white" }}>ReminderAI</span>
-          <span className="text-xs" style={{ color: "#859399" }}>© 2024 ReminderAI. All rights reserved.</span>
+          <span className="text-2xl  tracking-tighter" style={{ color: "white" }}>Re-Mind</span>
+          <span className="text-xs" style={{ color: "#859399" }}>© 2024 Re-Mind. All rights reserved.</span>
           <div className="flex gap-3 text-xs">
             {["Privacy", "Terms", "Support"].map((item) => (
               <a key={item} href="#" style={{ color: "wite" }}>{item}</a>

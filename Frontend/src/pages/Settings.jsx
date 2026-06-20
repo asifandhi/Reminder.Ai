@@ -196,8 +196,8 @@ function Settings() {
         className="w-full py-12 border-t mt-auto bg-gray-950"
       >
         <div className="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto px-5 gap-6 md:gap-0">
-          <span className="text-2xl font-bold tracking-tighter" style={{ color: "#a4e6ff" }}>ReminderAI</span>
-          <span className="text-xs" style={{ color: "#859399" }}>© 2024 ReminderAI. All rights reserved.</span>
+          <span className="text-2xl font-bold tracking-tighter" style={{ color: "#a4e6ff" }}>Re-Mind</span>
+          <span className="text-xs" style={{ color: "#859399" }}>© 2024 Re-Mind. All rights reserved.</span>
           <div className="flex gap-6 text-xs">
             {["Privacy", "Terms", "Support"].map((item) => (
               <a key={item} href="#" style={{ color: "#859399" }}>{item}</a>
