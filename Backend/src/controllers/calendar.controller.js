@@ -21,7 +21,7 @@ oauth2Client.on("tokens", async (tokens) => {
       },
     }
   );
-  console.log("Google tokens auto-refreshed and saved to DB");
+  // console.log("Google tokens auto-refreshed and saved to DB");
 });
 
 let storedTokens = null;
@@ -40,7 +40,6 @@ export const handleCallback = async (req, res) => {
   const { tokens } = await oauth2Client.getToken(code);
   oauth2Client.setCredentials(tokens);
   storedTokens = tokens;  
-  console.log("Stored tokens : ", storedTokens);
   
 
   await User.findByIdAndUpdate(

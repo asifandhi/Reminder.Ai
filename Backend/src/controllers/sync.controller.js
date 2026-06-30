@@ -41,7 +41,6 @@ export const addReminder = asyncHandler(async (req, res) => {
           task.googleCalendarEventId = id;
           await task.save();
         }
-        console.log(calendarLink);
         
       } catch (err) {
         console.warn("Calendar push skipped:", err.message);

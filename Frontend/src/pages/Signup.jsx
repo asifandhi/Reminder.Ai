@@ -115,7 +115,7 @@ function Signup() {
             value={form.password}
             onChange={handleChange}
             onKeyDown={handleKey}
-            placeholder="••••••••"
+            placeholder="Password"
             className="rounded-xl text-sm"
             style={{
               background: "rgba(255,255,255,0.04)",
