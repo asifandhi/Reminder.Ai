@@ -36,7 +36,7 @@ function Header() {
 
                     {status ? (
                         <>
-                            <span className=" text-sm font-semibold"
+                            <span className=" text-sm font-semibold border-gray-500 border py-1 px-2 shadow-white shadow rounded-2xl"
                                 style={{ color: "#bbc9cf" }}
                             >
                                 {userData?.name}
