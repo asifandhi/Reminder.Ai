@@ -9,7 +9,7 @@ const connectDB = async () => {
         console.log(`Database host : ${connectionInstance.connection.host}`);
         console.log(`Database port : ${connectionInstance.connection.port}`);
     } catch (error) {
-        console.log("::: Error while connecting to the database :::");
+        console.log("::: Error while connecting to the database ::: \n",error);
         process.exit(1);
 
         
