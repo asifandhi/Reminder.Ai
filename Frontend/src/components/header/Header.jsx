@@ -91,39 +91,47 @@ function Header() {
 
                 <div className="sm:hidden">
                     {status ? (
-                        <>
-                            
+    <div className='relative w-full'>   
+    <div className=' absolute top z-50 right-3 border border-white p-4 mt-1 rounded-xl  grid grid-cols-1 gap-2 mb-2 ml-0.5 shadow-lg  bg-gray-900 shadow-white'>
+        <Link to="/settings">
+            <Button
+                variant="cta"
+                className='bg-transparent border border-gray-500 px-3 w-full rounded-xl hover:bg-[#00D1FF] hover:text-black hover:border-[#00D1FF] transition'
+            >
+                Settings
+            </Button>
+        </Link>
 
-                            <div className='flex flex-col gap-2 mb-2 ml-0.5'>
-                                <Link  to="/settings">
-                                <Button
-                                variant="cta"
-                                className='bg-transparent px-3 w-[25%]  rounded hover:bg-blue-300 hover:text-black'
-                                >Settings </Button>
-                            </Link>
+        <Button
+            variant="cta"
+            className='bg-transparent border border-gray-500 px-3 w-full rounded-xl hover:bg-[#00D1FF] hover:text-black hover:border-[#00D1FF] transition'
+            onClick={handleLogout}
+        >
+            Logout
+        </Button>
+    </div>
+    </div>
 
-                            <Button
-                                variant="cta"
-                                className='bg-transparent px-3 w-[25%]  rounded hover:bg-blue-300 hover:text-black'
-                                onClick={handleLogout}
-                            >
-                                Logout
-                            </Button>
-                            </div>
-                        </>
                     ) : (
-                        <>
-                            <div className='flex flex-col justify-center px-1 gap-1.5  mb-1 '>
-                                <Link className='bg-transparent px-3 w-[25%]  rounded hover:bg-blue-300 hover:text-black'  to="/login">
-                                Login
-                            </Link>
+                        
+                 <div className='relative w-full'>
+    <div className='absolute right-1 top-1.5 z-50 border border-white p-4 rounded-xl grid grid-cols-1 gap-3 mx-3 shadow-lg bg-gray-900 shadow-white'>
+        <div className='border-gray-500 border rounded-xl w-full hover:bg-[#00D1FF] hover:text-black px-4 font-semibold py-1 transition'>
+            <Link className='bg-transparent px-3 rounded' to="/login">
+                Login
+            </Link>
+        </div>
 
-                            <Link className='bg-transparent px-3 w-[25%]  rounded hover:bg-blue-300 hover:text-black' to="/signup">
-                               Sign up
-                            </Link>
-                            </div>
+        <div className='border-gray-500 border rounded-xl w-full bg-[#00D1FF] text-black px-4 py-1 hover:text-white  font-semibold hover:bg-gray-950 transition'>
+            <Link className='bg-transparent px-3 rounded' to="/signup">
+                Sign up
+            </Link>
+        </div>
+    </div>
+</div>
+                             
                             
-                        </>
+                        
                     )}
                 </div>
             )}
