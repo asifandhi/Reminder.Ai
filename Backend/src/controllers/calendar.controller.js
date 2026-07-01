@@ -32,7 +32,7 @@ export const getAuthUrl = (req, res) => {
     scope: ["https://www.googleapis.com/auth/calendar.events"],
     state: req.user._id.toString(),
   });
-  res.redirect(url);
+  res.json({ url });
 };
 
 export const handleCallback = async (req, res) => {
