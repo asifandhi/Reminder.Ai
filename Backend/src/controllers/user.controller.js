@@ -22,7 +22,8 @@ const generateTokens = async (userId) => {
 const options = {
   httpOnly: true,
   secure: true,  
-  sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+  sameSite: "none",
+  partitioned :true 
 };
  const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
