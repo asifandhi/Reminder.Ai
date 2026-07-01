@@ -21,7 +21,7 @@ const generateTokens = async (userId) => {
 };
 const options = {
   httpOnly: true,
-  secure: process.env.NODE_ENV === "production",  
+  secure: true,  
   sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
 };
  const registerUser = asyncHandler(async (req, res) => {
