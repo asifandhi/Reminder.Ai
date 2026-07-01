@@ -85,9 +85,9 @@ function Home() {
   >
     <span className="text-xl pb-0.5 shrink-0" style={{ color: "#859399" }}>🔍</span>
     <textarea
-      className="flex-grow bg-transparent border-none outline-none text-lg resize-none overflow-hidden"
+      className="grow min-w-0 bg-transparent border-none outline-none text-lg resize-none overflow-hidden break-words"
       style={{ color: "#dce1fb", minHeight: "28px", maxHeight: "200px", lineHeight: "1.5" }}
-      placeholder="Paste WhatsApp/email text to create reminders..."
+      placeholder="Paste text to create reminders..."
       value={text}
       rows={1}
       onChange={(e) => {
